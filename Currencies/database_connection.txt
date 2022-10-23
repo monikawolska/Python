@@ -1,0 +1,1 @@
+(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.eu-frankfurt-1.oraclecloud.com))(connect_data=(service_name=g76285cd2a9ed5e_m6yd3opgugxpo53g_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
