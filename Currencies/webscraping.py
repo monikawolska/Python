@@ -1,4 +1,3 @@
-import pprint
 from requests import get
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -32,28 +31,25 @@ def current_prices():
     return prices
 
 
-def where_buy_euro():
-    price = min(eur_sell)
-    website = source[(eur_sell.index(price))]
-    print(price, website)
+def where_buy(currency):
+    if currency == 'EURO':
+        price = min(eur_sell)
+        website = source[(eur_buy.index(price))]
+        print(price, website)
+    elif currency == 'DOLAR':
+        price = min(dol_sell)
+        website = source[(dol_buy.index(price))]
+        print(price, website)
 
-
-def where_buy_dolar():
-    price = min(dol_sell)
-    website = source[(dol_sell.index(price))]
-    print(price, website)
-
-
-def where_sell_euro():
-    price = max(eur_buy)
-    website = source[(eur_buy.index(price))]
-    print(price, website)
-
-
-def where_sell_dolar():
-    price = max(dol_buy)
-    website = source[(dol_buy.index(price))]
-    print(price, website)
+def where_sell(currency):
+    if currency == 'EURO':
+        price = max(eur_buy)
+        website = source[(eur_buy.index(price))]
+        print(price, website)
+    elif currency == 'DOLAR':
+        price = max(dol_buy)
+        website = source[(dol_buy.index(price))]
+        print(price, website)
 
 
 def internetowyKantor():
