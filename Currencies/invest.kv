@@ -10,6 +10,7 @@
             text: "Zaktualizuj dane w bazie"
 
         BoxLayout:
+            id: currency_button
             orientation: "horizontal"
             size_hint: 1, 0.25
 
@@ -49,12 +50,10 @@
             Button:
                 id: chart_50
                 text: "50 dni"
-                on_release: root.show_chart_50()
 
             Button:
                 id: chart_7
                 text: "7 dni"
-                on_release: root.show_chart_7()
 
         BoxLayout:
             id: chart

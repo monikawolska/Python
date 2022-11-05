@@ -144,29 +144,6 @@ class Analysis():
 
         return result
 
-    def default_chart_x(self):
-        x = self.data_frame['Data']
-        return x
-
-
-    def default_chart_y(self):
-        y = self.data_frame[['Kurs', 'SMA200', 'SMA7']]
-        return y
-
-
-    def x(self, number):
-        n = (-number)
-        x = self.data_frame.iloc[n:,0]
-        y = self.data_frame.iloc[n:,[1,3,7]]
-        return x
-
-
-    def y(self, number):
-        n = (-1)*number
-        y = self.data_frame.iloc[n:,[1,3,7]]
-        return y
-
-
     def ichimoku_strategy(self):
         pass
 
@@ -192,4 +169,3 @@ class Analysis():
 
         print(text + abs(number))
 
-euro = Analysis("euro.csv", "EURO", "https://www.money.pl/pieniadze/nbparch/srednie/?symbol=EUR.n", "EUR")

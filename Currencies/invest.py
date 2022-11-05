@@ -43,21 +43,14 @@ class Invest(BoxLayout):
 
     def show_chart_200(self):
         chart = self.ids.chart
-        plt.plot(euro.x(200), euro.y(200))
+        df = euro.data_frame.loc[-200:,['Data', 'Kurs', 'SMA200', 'SMA7']]
+        x = df.loc[:,['Data']]
+        y = df.loc[:,['Kurs', 'SMA200', 'SMA7']]
+        plt.plot(x, y)
         chart.add_widget(FigureCanvasKivyAgg(plt.gcf()))
 
-
-    def show_chart_50(self):
-        chart = self.ids.chart
-        plt.plot(euro.x(50), euro.y(50))
-        chart.add_widget(FigureCanvasKivyAgg(plt.gcf()))
-
-
-    def show_chart_7(self):
-        chart = self.ids.chart
-        plt.plot(euro.x(7), euro.y(7))
-        chart.add_widget(FigureCanvasKivyAgg(plt.gcf()))
-
+    def deactivate_button(self):
+        self.ids.currency_button
 
 class InvestApp(App):
 
