@@ -46,12 +46,12 @@ class Invest(BoxLayout):
         dolar.updating_currency()
 
     def show_chart_200(self):
-        chart = self.ids.chart
-        df = euro.data_frame.loc[-200:,['Data', 'Kurs', 'SMA200', 'SMA7']]
-        x = df.loc[:,['Data']]
-        y = df.loc[:,['Kurs', 'SMA200', 'SMA7']]
-        plt.plot(x, y)
-        chart.add_widget(FigureCanvasKivyAgg(plt.gcf()))
+        if (self.ids.euro_button.selected):
+            result = euro.show_chart_200()
+            self.ids.chart.add_widget(FigureCanvasKivyAgg(result.gcf()))
+        elif (self.ids.dolar_button.selected):
+            result = dolar.show_chart_200()
+            self.ids.chart.add_widget(FigureCanvasKivyAgg(result.gcf()))
 
     def deactivate_button(self):
         self.ids.euro_button.selected = False

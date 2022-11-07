@@ -118,6 +118,22 @@ class Analysis():
         return result
 
 
+    def show_chart_200(self):
+        df = self.data_frame.loc[-200:-1, ['Data', 'Kurs', 'SMA200', 'SMA7']]
+        x = df.loc[:, ['Data']]
+        y = df.loc[:, ['Kurs', 'SMA200', 'SMA7']]
+        plt.plot(x, y)
+        return plt
+
+
+    def show_chart_50(self):
+        pass
+
+
+    def show_chart_7(self):
+        pass
+
+
     def rolling_average_signals(self):
         # formacja złotego krzyża i formacja krzyża śmierci
         flag = 0
