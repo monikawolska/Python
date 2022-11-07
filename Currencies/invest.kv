@@ -1,3 +1,4 @@
+#: include currency_button.kv
 
 <Invest>:
     BoxLayout:
@@ -10,16 +11,15 @@
             text: "Zaktualizuj dane w bazie"
 
         BoxLayout:
-            id: currency_button
             orientation: "horizontal"
             size_hint: 1, 0.25
 
-            Button:
+            CurrencyButton:
                 id: euro_button
                 on_release: root.show_data_euro()
                 text: "Euro"
 
-            Button:
+            CurrencyButton:
                 id: dolar_button
                 on_release: root.show_data_dolar()
                 text: "Dolar"
@@ -34,9 +34,23 @@
             Label:
                 id: current_price
 
-        Label:
-            id: currency_info
-            size_hint: 1, 0.4
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+
+            Label:
+                text: "Wg analizy średnich SMA200 i SMA7:"
+            Label:
+                id: currency_info
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+
+            Label:
+                text: "Wg analizy średnich EMA200 i EMA7:"
+            Label:
+                id: currency_info
 
         BoxLayout:
             orientation: "horizontal"
