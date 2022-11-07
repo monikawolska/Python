@@ -98,49 +98,47 @@ class Analysis():
         return str(data)
 
 
-    def rolling_average(self):
+    def rolling_average_trends(self):
         # SMA - średia krocząca, EMA - wykładnicza średnia krocząca
         # EMA daje sygnał, SMA określa trend
 
-        result = "Wg analizy średnich SMA200 i SMA7: "
-
         if (self.data_frame.iloc[-7:, 2] < self.data_frame.iloc[-7:, 6]).all() & (
                 self.data_frame.iloc[-7:, 2] < self.data_frame.iloc[-7:, 4]).all():
-            result = result + "Silny trend rosnący\n"
+            result = "Silny trend rosnący\n"
         elif (self.data_frame.iloc[-7:, 2] < self.data_frame.iloc[-7:, 6]).all():
-            result = result + "Trend rosnący\n"
+            result = "Trend rosnący\n"
         elif (self.data_frame.iloc[-7:, 2] > self.data_frame.iloc[-7:, 6]).all() & (
                 self.data_frame.iloc[-7:, 2] > self.data_frame.iloc[-7:, 4]).all():
-            result = result + "Silny trend malejący\n"
+            result = "Silny trend malejący\n"
         elif (self.data_frame.iloc[-7:, 2] > self.data_frame.iloc[-7:, 6]).all():
-            result = result + "Trend malejący\n"
+            result = "Trend malejący\n"
         else:
-            result = result + "Brak długiego potwierdzonego trendu\n"
+            result = "Brak długiego potwierdzonego trendu\n"
 
-        #formacja złotego krzyża i formacja krzyża śmierci
+        return result
 
-        title = "Wg analizy średnich EMA200 i EMA7: "
-        text = "EMA sygnalizuje dobry czas transakcji: "
+
+    def rolling_average_signals(self):
+        # formacja złotego krzyża i formacja krzyża śmierci
         flag = 0
-
         for n in [-8,-7,-6,-5,-4,-3,-2,-1]:
             data = self.data_frame.iat[(n+1), 0]
             if (self.data_frame.iat[n, 7] < self.data_frame.iat[n, 3]) & (
                     self.data_frame.iat[(n+1), 7] > self.data_frame.iat[(n+1), 3]):
                 flag = 1
-                result = result + title + text + "kup\n" + "Data wystąpienia: " + data
+                result = "Sygnał kupna\n" + "Data wystąpienia: " + data
 
                 webscraping.compare()
                 webscraping.where_buy(self.currency)
             elif (self.data_frame.iat[n, 7] > self.data_frame.iat[n, 3]) & (
                     self.data_frame.iat[(n+1), 7] < self.data_frame.iat[(n+1), 3]):
                 flag = 1
-                result = result + title + text + "sprzedaj\n" + "Data wystąpienia: " + data
+                result = "Sygnał sprzedaży\n" + "Data wystąpienia: " + data
                 webscraping.compare()
                 webscraping.where_sell(self.currency)
 
         if flag == 0:
-                result = result + title + "Brak sygnału do kupna/sprzedaży\n"
+                result = "Brak sygnału do kupna/sprzedaży\n"
 
         return result
 

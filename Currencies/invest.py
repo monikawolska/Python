@@ -30,14 +30,16 @@ class Invest(BoxLayout):
         self.ids.euro_button.selected = not self.ids.euro_button.selected
         self.ids.current_price_date.text = euro.price_today_data()
         self.ids.current_price.text = euro.price_today()
-        self.ids.currency_info.text = euro.rolling_average()
+        self.ids.trend_info.text = euro.rolling_average_trends()
+        self.ids.transaction_info.text = euro.rolling_average_signals()
 
     def show_data_dolar(self):
         self.deactivate_button()
         self.ids.dolar_button.selected = not self.ids.dolar_button.selected
         self.ids.current_price_date.text = dolar.price_today_data()
         self.ids.current_price.text = dolar.price_today()
-        self.ids.currency_info.text = dolar.rolling_average()
+        self.ids.trend_info.text = dolar.rolling_average_trends()
+        self.ids.transaction_info.text = dolar.rolling_average_signals()
 
     def update(self):
         euro.updating_currency()
