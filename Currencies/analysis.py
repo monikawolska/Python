@@ -9,6 +9,7 @@ from requests import get
 from bs4 import BeautifulSoup
 import pandas as pd
 import requests
+import openpyxl
 
 
 
@@ -118,10 +119,10 @@ class Analysis():
         return result
 
 
-    def show_chart_200(self):
-        df = self.data_frame.loc[-200:-1, ['Data', 'Kurs', 'SMA200', 'SMA7']]
-        x = df.loc[:, ['Data']]
-        y = df.loc[:, ['Kurs', 'SMA200', 'SMA7']]
+    def show_chart(self, number):
+        df = self.data_frame[number:]
+        x = df[['Data']]
+        y = df[['Kurs', 'SMA200', 'SMA7']]
         plt.plot(x, y)
         return plt
 

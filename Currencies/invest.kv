@@ -60,15 +60,17 @@
             Button:
                 id: chart_200
                 text: "200 dni"
-                on_release: root.show_chart_200()
+                on_release: root.show_chart(-200)
 
             Button:
                 id: chart_50
                 text: "50 dni"
+                on_release: root.show_chart(-50)
 
             Button:
                 id: chart_7
                 text: "7 dni"
+                on_release: root.show_chart(-7)
 
         BoxLayout:
             id: chart

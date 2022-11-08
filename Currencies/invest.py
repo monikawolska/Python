@@ -45,13 +45,15 @@ class Invest(BoxLayout):
         euro.updating_currency()
         dolar.updating_currency()
 
-    def show_chart_200(self):
+
+    def show_chart(self, number):
         if (self.ids.euro_button.selected):
-            result = euro.show_chart_200()
+            result = euro.show_chart(number)
             self.ids.chart.add_widget(FigureCanvasKivyAgg(result.gcf()))
         elif (self.ids.dolar_button.selected):
-            result = dolar.show_chart_200()
+            result = dolar.show_chart(number)
             self.ids.chart.add_widget(FigureCanvasKivyAgg(result.gcf()))
+
 
     def deactivate_button(self):
         self.ids.euro_button.selected = False
