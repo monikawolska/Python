@@ -8,8 +8,8 @@ import currency_button
 
 
 Config.set('graphics', 'resizable', '0')
-Config.set('graphics', 'width', '700')
-Config.set('graphics', 'height', '1000')
+Config.set('graphics', 'width', '1000')
+Config.set('graphics', 'height', '2000')
 Config.set('graphics', 'fullscreen', '0')
 
 
@@ -33,6 +33,7 @@ class Invest(BoxLayout):
         self.ids.trend_info.text = euro.rolling_average_trends()
         self.ids.transaction_info.text = euro.rolling_average_signals()
 
+
     def show_data_dolar(self):
         self.deactivate_button()
         self.ids.dolar_button.selected = not self.ids.dolar_button.selected
@@ -40,6 +41,7 @@ class Invest(BoxLayout):
         self.ids.current_price.text = dolar.price_today()
         self.ids.trend_info.text = dolar.rolling_average_trends()
         self.ids.transaction_info.text = dolar.rolling_average_signals()
+
 
     def update(self):
         euro.updating_currency()
@@ -58,6 +60,7 @@ class Invest(BoxLayout):
     def deactivate_button(self):
         self.ids.euro_button.selected = False
         self.ids.dolar_button.selected = False
+
 
 class InvestApp(App):
 

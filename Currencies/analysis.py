@@ -22,6 +22,7 @@ class Analysis():
         self.data_frame = self._downloading_data()
         self.code_iso = code_iso
 
+
     def updating_currency(self):
         '''Pobieranie kursów waluty wg NBP'''
 
@@ -88,6 +89,7 @@ class Analysis():
             price = key['mid']
 
         return str(price)
+
 
     def price_today_data(self):
         response = requests.get("http://api.nbp.pl/api/exchangerates/rates/a/" +  self.code_iso +"/")
@@ -158,6 +160,7 @@ class Analysis():
                 result = "Brak sygnału do kupna/sprzedaży\n"
 
         return result
+
 
     def ichimoku_strategy(self):
         pass
