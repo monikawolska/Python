@@ -129,14 +129,6 @@ class Analysis():
         return plt
 
 
-    def show_chart_50(self):
-        pass
-
-
-    def show_chart_7(self):
-        pass
-
-
     def rolling_average_signals(self):
         # formacja złotego krzyża i formacja krzyża śmierci
         flag = 0
