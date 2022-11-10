@@ -1,16 +1,14 @@
-import pandas as pd
 from sklearn import linear_model
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.signal import argrelextrema
 import webscraping
 import datetime
 from requests import get
 from bs4 import BeautifulSoup
 import pandas as pd
 import requests
-import openpyxl
-
 
 
 class Analysis():
@@ -159,7 +157,18 @@ class Analysis():
 
 
     def harmonic_Fibonacci_analysis(self):
-        pass
+        #finding relative extrema
+        df = self.data_frame.iloc[-100:0]
+
+        for i in range(100, len(df)):
+
+            max_idx = list(argrelextrema(df['Kurs'], np.greater,order = 10)[0])
+            min_idx = list(argrelextrema(df['Kurs'], np.less, order = 10)[0])
+            idx = max_idx + min_idx
+            idx.sort()
+            values = df['Kurs']
+            peaks = values[idx]
+            return string(max_idx)
 
 
     def simple_steps(self):

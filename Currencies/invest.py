@@ -32,6 +32,7 @@ class Invest(BoxLayout):
         self.ids.current_price.text = euro.price_today()
         self.ids.trend_info.text = euro.rolling_average_trends()
         self.ids.transaction_info.text = euro.rolling_average_signals()
+        self.ids.fibonacci_info.text = euro.harmonic_Fibonacci_analysis()
 
 
     def show_data_dolar(self):
@@ -41,6 +42,7 @@ class Invest(BoxLayout):
         self.ids.current_price.text = dolar.price_today()
         self.ids.trend_info.text = dolar.rolling_average_trends()
         self.ids.transaction_info.text = dolar.rolling_average_signals()
+        self.ids.fibonacci_info.text = dolar.harmonic_Fibonacci_analysis()
 
 
     def update(self):
