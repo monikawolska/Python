@@ -159,32 +159,36 @@ class Analysis():
     def harmonic_Fibonacci_analysis(self):
         #finding relative extrema
         df = self.data_frame.iloc[-100:0]
+        df_kurs = df['Kurs']
 
         for i in range(100, len(df)):
 
-            max_idx = list(argrelextrema(df['Kurs'], np.greater,order = 10)[0])
-            min_idx = list(argrelextrema(df['Kurs'], np.less, order = 10)[0])
-            idx = max_idx + min_idx
+            max_idx = list(argrelextrema(df_kurs[:i], np.greater,order = 10)[0])
+            min_idx = list(argrelextrema(df_kurs[:i], np.less, order = 10)[0])
+
+            idx = max_idx + min_idx + [len(price_kurs[:i])-1]
             idx.sort()
-            values = df['Kurs']
-            peaks = values[idx]
+
+            current_idx = idx[-5:]
+
+            current_pat = df_kurs[current_idx]
+
+            XA = current_pat[1] - current_pat[0]
+            AB = current_pat[2] - current_pat[1]
+            BC = current_pat[3] - current_pat[2]
+            CD = current_pat[4] - current_pat[3]
+
+            if XA>0 and AB<0 and BC>0 and CD<0:
+                plt.plot(np.arange(start, i), df_kurs[start:i])
+            plt.plot(current_idx, current_pat,c='r')
+            plt.show()
+
             return string(max_idx)
 
 
     def simple_steps(self):
 
-        number = -1
 
-        if self.data_frame.iat[(number-1), 1] - self.data_frame.iat[(number-2), 1] < 0:
-            text = "Cena spada od"
-            while (self.data_frame.iat[(number-1), 1] - self.data_frame.iat[(number-2), 1] < 0) & (
-                    abs(number) <= 20):
-                number =- 1
-        elif self.data_frame.iat[(number-1), 1] - self.data_frame.iat[(number-2), 1] > 0:
-            while self.data_frame.iat[(number-1), 1] - self.data_frame.iat[(number-2), 1] > 0 & (
-                    abs(number) >= 20):
-                number =- 1
-            text = "Cena rośnie od "
 
-        print(text + abs(number))
-
+euro = Analysis("euro.csv", "EURO", "https://www.money.pl/pieniadze/nbparch/srednie/?symbol=EUR.n", "EUR")
+euro.harmonic_Fibonacci_analysis()
