@@ -1,0 +1,96 @@
+<Finder>:
+    BoxLayout:
+        orientation: "vertical"
+
+        Button:
+            id: update_button
+            size_hint: 1, 0.25
+            on_release: root.update()
+            text: "Zaktualizuj dane w bazie"
+
+        BoxLayout:
+            id: currency_buttons
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+
+            CurrencyButton:
+                id: euro_button
+                on_release: root.show_data_euro()
+                text: "Euro"
+
+            CurrencyButton:
+                id: dolar_button
+                on_release: root.show_data_dolar()
+                text: "Dolar"
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+
+            Label:
+                id: current_price_date
+
+            Label:
+                id: current_price
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+
+            Label:
+                text: "Wg analizy średnich SMA200 i SMA7:"
+            Label:
+                id: trend_info
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+
+            Label:
+                text: "Wg analizy średnich EMA200 i EMA7:"
+            Label:
+                id: transaction_info
+
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+
+            Label:
+                text: "Wg strategii Ichimoku:"
+            Label:
+                id: ichimoku_info
+
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+
+            Label:
+                text: "Wg analizy harmonicznej Fibonacciego:"
+            Label:
+                id: fibonacci_info
+
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+
+            Button:
+                id: chart_200
+                text: "200 dni"
+                on_release: root.show_chart(-200)
+
+            Button:
+                id: chart_50
+                text: "50 dni"
+                on_release: root.show_chart(-50)
+
+            Button:
+                id: chart_7
+                text: "7 dni"
+                on_release: root.show_chart(-7)
+
+        BoxLayout:
+            id: chart
+            text: "Czemuuuuu"
