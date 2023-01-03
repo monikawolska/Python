@@ -1,96 +1,188 @@
 <Finder>:
-    BoxLayout:
-        orientation: "vertical"
+    PageLayout:
 
-        Button:
-            id: update_button
-            size_hint: 1, 0.25
-            on_release: root.update()
-            text: "Zaktualizuj dane w bazie"
+        font_size: 40
+        color: 1,0,1,1
 
+        canvas.before:
+            BorderImage:
+                source: 'Colorful_Wooden_Pencils_background.jpg'
+                pos: self.pos
+                size: self.size
+
+        # first page
         BoxLayout:
-            id: currency_buttons
-            orientation: "horizontal"
-            size_hint: 1, 0.25
+            orientation: "vertical"
+            canvas.before:
+                BorderImage:
+                    source: 'Colorful_Wooden_Pencils_background.jpg'
 
-            CurrencyButton:
-                id: euro_button
-                on_release: root.show_data_euro()
-                text: "Euro"
-
-            CurrencyButton:
-                id: dolar_button
-                on_release: root.show_data_dolar()
-                text: "Dolar"
-
-        BoxLayout:
-            orientation: "horizontal"
-            size_hint: 1, 0.25
 
             Label:
-                id: current_price_date
-
-            Label:
-                id: current_price
-
-        BoxLayout:
-            orientation: "horizontal"
-            size_hint: 1, 0.25
-
-            Label:
-                text: "Wg analizy średnich SMA200 i SMA7:"
-            Label:
-                id: trend_info
-
-        BoxLayout:
-            orientation: "horizontal"
-            size_hint: 1, 0.25
-
-            Label:
-                text: "Wg analizy średnich EMA200 i EMA7:"
-            Label:
-                id: transaction_info
-
-
-        BoxLayout:
-            orientation: "horizontal"
-            size_hint: 1, 0.25
-
-            Label:
-                text: "Wg strategii Ichimoku:"
-            Label:
-                id: ichimoku_info
-
-
-        BoxLayout:
-            orientation: "horizontal"
-            size_hint: 1, 0.25
-
-            Label:
-                text: "Wg analizy harmonicznej Fibonacciego:"
-            Label:
-                id: fibonacci_info
-
-
-        BoxLayout:
-            orientation: "horizontal"
-            size_hint: 1, 0.25
+                text: 'Do you want to update data'
 
             Button:
-                id: chart_200
-                text: "200 dni"
-                on_release: root.show_chart(-200)
+                id: update_button
+                size_hint: 1, 0.25
+                on_release:
+                text: "Execute"
 
-            Button:
-                id: chart_50
-                text: "50 dni"
-                on_release: root.show_chart(-50)
-
-            Button:
-                id: chart_7
-                text: "7 dni"
-                on_release: root.show_chart(-7)
-
+        # second page
         BoxLayout:
-            id: chart
-            text: "Czemuuuuu"
+            orientation: "vertical"
+            canvas.before:
+                BorderImage:
+                    source: 'Colorful_Wooden_Pencils_background.jpg'
+
+            Label:
+                text: 'Logopedist'
+
+            GridLayout:
+                cols: 2
+
+                Label:
+                    id: label1
+                    text: 'Yes'
+                CheckBox:
+                    id: rbutton1
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+                Label:
+                    id: label2
+                    text: 'No'
+                CheckBox:
+                    id: rbutton2
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+                Label:
+                    id: label2
+                    text: r'Doesn\'t matter'
+                CheckBox:
+                    id: rbutton2
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+
+        # third page
+        BoxLayout:
+            orientation: "vertical"
+
+            Label:
+                text: 'Logopedist'
+
+            GridLayout:
+                cols: 2
+                Label:
+                    id: label1
+                    text: 'Yes'
+                CheckBox:
+                    id: rbutton1
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+                Label:
+                    id: label2
+                    text: 'No'
+                CheckBox:
+                    id: rbutton2
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+                Label:
+                    id: label2
+                    text: r'Doesn\'t matter'
+                CheckBox:
+                    id: rbutton2
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+
+        # fourth page
+        BoxLayout:
+            orientation: "vertical"
+
+            Label:
+                text: 'Logopedist'
+
+            GridLayout:
+                cols: 2
+                Label:
+                    id: label1
+                    text: 'Yes'
+                CheckBox:
+                    id: rbutton1
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+                Label:
+                    id: label2
+                    text: 'No'
+                CheckBox:
+                    id: rbutton2
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+                Label:
+                    id: label2
+                    text: r'Doesn\'t matter'
+                CheckBox:
+                    id: rbutton2
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+
+        # fifth page
+        BoxLayout:
+            orientation: "vertical"
+
+            Label:
+                text: 'Logopedist'
+
+            GridLayout:
+                cols: 2
+                Label:
+                    id: label1
+                    text: 'Yes'
+                CheckBox:
+                    id: rbutton1
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+                Label:
+                    id: label2
+                    text: 'No'
+                CheckBox:
+                    id: rbutton2
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+                Label:
+                    id: label2
+                    text: r'Doesn\'t matter'
+                CheckBox:
+                    id: rbutton2
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+
+        # fifth page
+        BoxLayout:
+            orientation: "vertical"
+
+            Label:
+                text: 'Logopedist'
+
+            GridLayout:
+                cols: 2
+                Label:
+                    id: label1
+                    text: 'Yes'
+                CheckBox:
+                    id: rbutton1
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+                Label:
+                    id: label2
+                    text: 'No'
+                CheckBox:
+                    id: rbutton2
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+                Label:
+                    id: label2
+                    text: r'Doesn\'t matter'
+                CheckBox:
+                    id: rbutton2
+                    group: 'logopedist'
+                    on_active: root.logopedist_click()
+
