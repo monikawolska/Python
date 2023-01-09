@@ -1,4 +1,4 @@
-<background>:
+<Background@Finder>:
     text_size: self.width, None
     size_hint_y: None
     height: self.texture_size[1]
@@ -11,9 +11,14 @@
 
 <Finder>:
 
+    # cover
     BoxLayout:
         orientation: "vertical"
-        viewclass: "background"
+        canvas.before:
+            BorderImage:
+                source: 'Colorful_Wooden_Pencils_background.jpg'
+                pos: self.pos
+                size: self.size
 
         Label:
             text: "Find your nearest primary school in Warsaw"
@@ -24,6 +29,11 @@
     # first page
     BoxLayout:
         orientation: "vertical"
+        canvas.before:
+            BorderImage:
+                source: 'Colorful_Wooden_Pencils_background.jpg'
+                pos: self.pos
+                size: self.size
 
 
         Label:
@@ -37,6 +47,11 @@
             size_hint: 1, 0.25
             on_release:
             text: "Execute"
+        Button:
+            id: update_button
+            size_hint: 1, 0.25
+            on_release:
+            text: "Pass"
 
     # second page
     BoxLayout:
@@ -48,7 +63,7 @@
                 size: self.size
 
         Label:
-            text: 'Logopedist'
+            text: 'Do you want to have the confirmation that in school there is logopedist?'
 
         GridLayout:
             cols: 2
@@ -69,11 +84,14 @@
                 on_active: root.logopedist_click()
             Label:
                 id: label2
-                text: r'Doesn\'t matter'
+                text: r'I dont need such information'
             CheckBox:
                 id: rbutton2
                 group: 'logopedist'
                 on_active: root.logopedist_click()
+
+        Label:
+            text: '*Only small number of schools provide such information. It can cause in very limited choice.'
 
     # third page
     BoxLayout:
@@ -85,7 +103,7 @@
                 size: self.size
 
         Label:
-            text: 'Logopedist'
+            text: 'Do you want to have the confirmation that in school there is psychologist?'
 
         GridLayout:
             cols: 2
@@ -105,11 +123,14 @@
                 on_active: root.logopedist_click()
             Label:
                 id: label2
-                text: r'Doesn\'t matter'
+                text: r'I dont need such information'
             CheckBox:
                 id: rbutton2
                 group: 'logopedist'
                 on_active: root.logopedist_click()
+
+        Label:
+            text: '*Only small number of schools provide such information. It can cause in very limited choice.'
 
     # fourth page
     BoxLayout:
@@ -121,7 +142,7 @@
                 size: self.size
 
         Label:
-            text: 'Logopedist'
+            text: 'Do you want to have the confirmation that in school there is pedagogue?'
 
         GridLayout:
             cols: 2
@@ -141,11 +162,14 @@
                 on_active: root.logopedist_click()
             Label:
                 id: label2
-                text: r'Doesn\'t matter'
+                text: r'I dont need such information'
             CheckBox:
                 id: rbutton2
                 group: 'logopedist'
                 on_active: root.logopedist_click()
+
+        Label:
+            text: '*Only small number of schools provide such information. It can cause in very limited choice.'
 
     # fifth page
     BoxLayout:
@@ -157,7 +181,7 @@
                 size: self.size
 
         Label:
-            text: 'Logopedist'
+            text: 'What language would you like to have in school?'
 
         GridLayout:
             cols: 2
@@ -182,6 +206,9 @@
                 id: rbutton2
                 group: 'logopedist'
                 on_active: root.logopedist_click()
+
+        Label:
+            text: ''
 
     # fifth page
     BoxLayout:
@@ -193,29 +220,49 @@
                 size: self.size
 
         Label:
-            text: 'Logopedist'
+            text: 'Please enter your address to best match the nearest primary school in Warsaw'
 
         GridLayout:
             cols: 2
             Label:
-                id: label1
-                text: 'Yes'
-            CheckBox:
-                id: rbutton1
-                group: 'logopedist'
-                on_active: root.logopedist_click()
+                id: address
+                text: 'City'
+            TextInput:
+                id: input
+                hint_text:'Enter text'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.95, 0.5
+                on_text: app.process()
             Label:
-                id: label2
-                text: 'No'
-            CheckBox:
-                id: rbutton2
-                group: 'logopedist'
-                on_active: root.logopedist_click()
+                id: address
+                text: 'Street'
+            TextInput:
+                id: input
+                hint_text:'Enter text'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.95, 0.5
+                on_text: app.process()
             Label:
-                id: label2
-                text: r'Doesn\'t matter'
-            CheckBox:
-                id: rbutton2
-                group: 'logopedist'
-                on_active: root.logopedist_click()
+                id: address
+                text: 'House number'
+            TextInput:
+                id: input
+                hint_text:'Enter text'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.95, 0.5
+                on_text: app.process()
 
+    # fifth page
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            BorderImage:
+                source: 'Colorful_Wooden_Pencils_background.jpg'
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Your nearest primary school is'
+
+        Label:
+            text: ''
