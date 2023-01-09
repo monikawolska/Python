@@ -1,8 +1,10 @@
 from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.pagelayout import PageLayout
 from kivy.config import Config
 from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
+from kivy.uix.label import Label
+from kivy.uix.widget import Widget
+from kivy.uix.button import Button
 
 
 Config.set('graphics', 'resizable', '0')
@@ -14,8 +16,6 @@ Config.set('graphics', 'fullscreen', '0')
 class Finder(PageLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-
-
     def update(self):
         pass
 
@@ -27,6 +27,8 @@ class Finder(PageLayout):
 
     def switchstate2(self):
         pass
+class background(Label):
+    pass
 
 
 class FinderApp(App):

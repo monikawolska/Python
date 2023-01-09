@@ -1,188 +1,221 @@
+<background>:
+    text_size: self.width, None
+    size_hint_y: None
+    height: self.texture_size[1]
+    canvas.before:
+        BorderImage:
+            source: 'Colorful_Wooden_Pencils_background.jpg'
+            pos: self.pos
+            size: self.size
+
+
 <Finder>:
-    PageLayout:
 
-        font_size: 40
-        color: 1,0,1,1
+    BoxLayout:
+        orientation: "vertical"
+        viewclass: "background"
 
+        Label:
+            text: "Find your nearest primary school in Warsaw"
+            font_size: 40
+            bold: True
+            italic: True
+
+    # first page
+    BoxLayout:
+        orientation: "vertical"
+
+
+        Label:
+            text: 'Do you want to update data?'
+            font_size: 40
+            bold: True
+            italic: True
+
+        Button:
+            id: update_button
+            size_hint: 1, 0.25
+            on_release:
+            text: "Execute"
+
+    # second page
+    BoxLayout:
+        orientation: "vertical"
         canvas.before:
             BorderImage:
                 source: 'Colorful_Wooden_Pencils_background.jpg'
                 pos: self.pos
                 size: self.size
 
-        # first page
-        BoxLayout:
-            orientation: "vertical"
-            canvas.before:
-                BorderImage:
-                    source: 'Colorful_Wooden_Pencils_background.jpg'
+        Label:
+            text: 'Logopedist'
 
+        GridLayout:
+            cols: 2
 
             Label:
-                text: 'Do you want to update data'
-
-            Button:
-                id: update_button
-                size_hint: 1, 0.25
-                on_release:
-                text: "Execute"
-
-        # second page
-        BoxLayout:
-            orientation: "vertical"
-            canvas.before:
-                BorderImage:
-                    source: 'Colorful_Wooden_Pencils_background.jpg'
-
+                id: label1
+                text: 'Yes'
+            CheckBox:
+                id: rbutton1
+                group: 'logopedist'
+                on_active: root.logopedist_click()
             Label:
-                text: 'Logopedist'
-
-            GridLayout:
-                cols: 2
-
-                Label:
-                    id: label1
-                    text: 'Yes'
-                CheckBox:
-                    id: rbutton1
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-                Label:
-                    id: label2
-                    text: 'No'
-                CheckBox:
-                    id: rbutton2
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-                Label:
-                    id: label2
-                    text: r'Doesn\'t matter'
-                CheckBox:
-                    id: rbutton2
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-
-        # third page
-        BoxLayout:
-            orientation: "vertical"
-
+                id: label2
+                text: 'No'
+            CheckBox:
+                id: rbutton2
+                group: 'logopedist'
+                on_active: root.logopedist_click()
             Label:
-                text: 'Logopedist'
+                id: label2
+                text: r'Doesn\'t matter'
+            CheckBox:
+                id: rbutton2
+                group: 'logopedist'
+                on_active: root.logopedist_click()
 
-            GridLayout:
-                cols: 2
-                Label:
-                    id: label1
-                    text: 'Yes'
-                CheckBox:
-                    id: rbutton1
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-                Label:
-                    id: label2
-                    text: 'No'
-                CheckBox:
-                    id: rbutton2
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-                Label:
-                    id: label2
-                    text: r'Doesn\'t matter'
-                CheckBox:
-                    id: rbutton2
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
+    # third page
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            BorderImage:
+                source: 'Colorful_Wooden_Pencils_background.jpg'
+                pos: self.pos
+                size: self.size
 
-        # fourth page
-        BoxLayout:
-            orientation: "vertical"
+        Label:
+            text: 'Logopedist'
 
+        GridLayout:
+            cols: 2
             Label:
-                text: 'Logopedist'
-
-            GridLayout:
-                cols: 2
-                Label:
-                    id: label1
-                    text: 'Yes'
-                CheckBox:
-                    id: rbutton1
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-                Label:
-                    id: label2
-                    text: 'No'
-                CheckBox:
-                    id: rbutton2
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-                Label:
-                    id: label2
-                    text: r'Doesn\'t matter'
-                CheckBox:
-                    id: rbutton2
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-
-        # fifth page
-        BoxLayout:
-            orientation: "vertical"
-
+                id: label1
+                text: 'Yes'
+            CheckBox:
+                id: rbutton1
+                group: 'logopedist'
+                on_active: root.logopedist_click()
             Label:
-                text: 'Logopedist'
-
-            GridLayout:
-                cols: 2
-                Label:
-                    id: label1
-                    text: 'Yes'
-                CheckBox:
-                    id: rbutton1
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-                Label:
-                    id: label2
-                    text: 'No'
-                CheckBox:
-                    id: rbutton2
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-                Label:
-                    id: label2
-                    text: r'Doesn\'t matter'
-                CheckBox:
-                    id: rbutton2
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-
-        # fifth page
-        BoxLayout:
-            orientation: "vertical"
-
+                id: label2
+                text: 'No'
+            CheckBox:
+                id: rbutton2
+                group: 'logopedist'
+                on_active: root.logopedist_click()
             Label:
-                text: 'Logopedist'
+                id: label2
+                text: r'Doesn\'t matter'
+            CheckBox:
+                id: rbutton2
+                group: 'logopedist'
+                on_active: root.logopedist_click()
 
-            GridLayout:
-                cols: 2
-                Label:
-                    id: label1
-                    text: 'Yes'
-                CheckBox:
-                    id: rbutton1
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-                Label:
-                    id: label2
-                    text: 'No'
-                CheckBox:
-                    id: rbutton2
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
-                Label:
-                    id: label2
-                    text: r'Doesn\'t matter'
-                CheckBox:
-                    id: rbutton2
-                    group: 'logopedist'
-                    on_active: root.logopedist_click()
+    # fourth page
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            BorderImage:
+                source: 'Colorful_Wooden_Pencils_background.jpg'
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Logopedist'
+
+        GridLayout:
+            cols: 2
+            Label:
+                id: label1
+                text: 'Yes'
+            CheckBox:
+                id: rbutton1
+                group: 'logopedist'
+                on_active: root.logopedist_click()
+            Label:
+                id: label2
+                text: 'No'
+            CheckBox:
+                id: rbutton2
+                group: 'logopedist'
+                on_active: root.logopedist_click()
+            Label:
+                id: label2
+                text: r'Doesn\'t matter'
+            CheckBox:
+                id: rbutton2
+                group: 'logopedist'
+                on_active: root.logopedist_click()
+
+    # fifth page
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            BorderImage:
+                source: 'Colorful_Wooden_Pencils_background.jpg'
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Logopedist'
+
+        GridLayout:
+            cols: 2
+            Label:
+                id: label1
+                text: 'Yes'
+            CheckBox:
+                id: rbutton1
+                group: 'logopedist'
+                on_active: root.logopedist_click()
+            Label:
+                id: label2
+                text: 'No'
+            CheckBox:
+                id: rbutton2
+                group: 'logopedist'
+                on_active: root.logopedist_click()
+            Label:
+                id: label2
+                text: r'Doesn\'t matter'
+            CheckBox:
+                id: rbutton2
+                group: 'logopedist'
+                on_active: root.logopedist_click()
+
+    # fifth page
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            BorderImage:
+                source: 'Colorful_Wooden_Pencils_background.jpg'
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Logopedist'
+
+        GridLayout:
+            cols: 2
+            Label:
+                id: label1
+                text: 'Yes'
+            CheckBox:
+                id: rbutton1
+                group: 'logopedist'
+                on_active: root.logopedist_click()
+            Label:
+                id: label2
+                text: 'No'
+            CheckBox:
+                id: rbutton2
+                group: 'logopedist'
+                on_active: root.logopedist_click()
+            Label:
+                id: label2
+                text: r'Doesn\'t matter'
+            CheckBox:
+                id: rbutton2
+                group: 'logopedist'
+                on_active: root.logopedist_click()
 
