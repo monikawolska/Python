@@ -1,46 +1,33 @@
-<Background@Finder>:
+<BackgroundColor@Widget>:
     text_size: self.width, None
-    size_hint_y: None
-    height: self.texture_size[1]
     canvas.before:
         BorderImage:
             source: 'Colorful_Wooden_Pencils_background.jpg'
             pos: self.pos
             size: self.size
 
+<BackgroundBoxLayout@BoxLayout+BackgroundColor>
+    orientation: "vertical"
+
+<Title@Label>
+    text_size: 40
+    bold: True
+    italic: True
+    color: 1, 0, 1, 1
 
 <Finder>:
 
     # cover
-    BoxLayout:
-        orientation: "vertical"
-        canvas.before:
-            BorderImage:
-                source: 'Colorful_Wooden_Pencils_background.jpg'
-                pos: self.pos
-                size: self.size
+    BackgroundBoxLayout:
 
-        Label:
+        Title:
             text: "Find your nearest primary school in Warsaw"
-            font_size: 40
-            bold: True
-            italic: True
 
     # first page
-    BoxLayout:
-        orientation: "vertical"
-        canvas.before:
-            BorderImage:
-                source: 'Colorful_Wooden_Pencils_background.jpg'
-                pos: self.pos
-                size: self.size
+    BackgroundBoxLayout:
 
-
-        Label:
+        Title:
             text: 'Do you want to update data?'
-            font_size: 40
-            bold: True
-            italic: True
 
         Button:
             id: update_button
@@ -54,15 +41,9 @@
             text: "Pass"
 
     # second page
-    BoxLayout:
-        orientation: "vertical"
-        canvas.before:
-            BorderImage:
-                source: 'Colorful_Wooden_Pencils_background.jpg'
-                pos: self.pos
-                size: self.size
+    BackgroundBoxLayout:
 
-        Label:
+        Title:
             text: 'Do you want to have the confirmation that in school there is logopedist?'
 
         GridLayout:
@@ -94,15 +75,9 @@
             text: '*Only small number of schools provide such information. It can cause in very limited choice.'
 
     # third page
-    BoxLayout:
-        orientation: "vertical"
-        canvas.before:
-            BorderImage:
-                source: 'Colorful_Wooden_Pencils_background.jpg'
-                pos: self.pos
-                size: self.size
+    BackgroundBoxLayout:
 
-        Label:
+        Title:
             text: 'Do you want to have the confirmation that in school there is psychologist?'
 
         GridLayout:
@@ -133,15 +108,9 @@
             text: '*Only small number of schools provide such information. It can cause in very limited choice.'
 
     # fourth page
-    BoxLayout:
-        orientation: "vertical"
-        canvas.before:
-            BorderImage:
-                source: 'Colorful_Wooden_Pencils_background.jpg'
-                pos: self.pos
-                size: self.size
+    BackgroundBoxLayout:
 
-        Label:
+        Title:
             text: 'Do you want to have the confirmation that in school there is pedagogue?'
 
         GridLayout:
@@ -172,15 +141,9 @@
             text: '*Only small number of schools provide such information. It can cause in very limited choice.'
 
     # fifth page
-    BoxLayout:
-        orientation: "vertical"
-        canvas.before:
-            BorderImage:
-                source: 'Colorful_Wooden_Pencils_background.jpg'
-                pos: self.pos
-                size: self.size
+    BackgroundBoxLayout:
 
-        Label:
+        Title:
             text: 'What language would you like to have in school?'
 
         GridLayout:
@@ -211,15 +174,9 @@
             text: ''
 
     # fifth page
-    BoxLayout:
-        orientation: "vertical"
-        canvas.before:
-            BorderImage:
-                source: 'Colorful_Wooden_Pencils_background.jpg'
-                pos: self.pos
-                size: self.size
+    BackgroundBoxLayout:
 
-        Label:
+        Title:
             text: 'Please enter your address to best match the nearest primary school in Warsaw'
 
         GridLayout:
@@ -253,16 +210,11 @@
                 on_text: app.process()
 
     # fifth page
-    BoxLayout:
-        orientation: "vertical"
-        canvas.before:
-            BorderImage:
-                source: 'Colorful_Wooden_Pencils_background.jpg'
-                pos: self.pos
-                size: self.size
+    BackgroundBoxLayout:
 
-        Label:
+        Title:
             text: 'Your nearest primary school is'
 
         Label:
+            id: result
             text: ''

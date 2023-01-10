@@ -27,9 +27,6 @@ class Finder(PageLayout):
 
     def switchstate2(self):
         pass
-class background(Label):
-    pass
-
 
 class FinderApp(App):
 
