@@ -5,7 +5,7 @@ from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
 from kivy.uix.label import Label
 from kivy.uix.widget import Widget
 from kivy.uix.button import Button
-
+import finder
 
 Config.set('graphics', 'resizable', '0')
 Config.set('graphics', 'width', '500')
@@ -16,23 +16,35 @@ Config.set('graphics', 'fullscreen', '0')
 class Finder(PageLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-    def update(self):
-        pass
 
-    def logopedist_click(self):
-        pass
+    def students_type(self, instance, value, answer):
+        if value == True:
+            return answer
+    def school_type(self, instance, value, answer):
+        if value == True:
+            return answer
+    def logopedist_click(self, instance, value, answer):
+        if value == True:
+            return answer
+    def psychologist_click(self, instance, value, answer):
+        if value == True:
+            return answer
+    def pedagogue_click(self, instance, value, answer):
+        if value == True:
+            return answer
+    def language_click(self, instance, value, answer):
+        if value == True:
+            return answer
 
-    def switchstate1(self):
-        pass
+    def nearest_school(self):
+        self.ids.result.text  = finder.find_school(self.logopedist_click(), self.psychologist_click(), self.pedagogue_click(),
+                           self.language_click(), self.students_type(), self.school_type())
 
-    def switchstate2(self):
-        pass
 
 class FinderApp(App):
 
     def build(self):
         return Finder()
-
 
 if __name__ == '__main__':
     FinderApp().run()

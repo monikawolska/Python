@@ -3,24 +3,6 @@ import pandas as pd
 
 
 file = 'warsaw_primary_schools.xlsx'
-def schools():
-    data = pd.read_excel(file)
-    df = data.loc[:,['Nazwa', 'Ulica', 'Numer budynku', 'Numer lokalu', 'Kod pocztowy', 'Strona www', 'Publiczność status',
-                     'Kategoria uczniów', 'Języki nauczane', 'Czy zatrudnia logopedę', 'Czy zatrudnia psychologa',
-                     'Czy zatrudnia pedagoga']]
-    return df
-
-
-schools()
-
-def user_data():
-    #lokalizacja
-    #Czy zatrudnia logopedę - tak, nie, wszystko
-    #Czy zatrudnia psychologa - tak, nie, wszystko
-    #Czy zatrudnia pedagoga - tak, nie, wszystko
-    #Języki nauczane - angielski, niemiecki, hiszpański, rosyjski, francuski, arabski
-    #najlepiej to żeby samo sprawdzało te języki
-    pass
 
 
 def finder(lat1, lon1, lat2, lon2):
@@ -38,14 +20,20 @@ def finder(lat1, lon1, lat2, lon2):
              math.cos(lat1) * math.cos(lat2));
         rad = 6371
         c = 2 * math.asin(math.sqrt(a))
+
         return rad * c
 
-    # Driver code
-    if __name__ == "__main__":
-        lat1 = 51.5007
-        lon1 = 0.1246
-        lat2 = 40.6892
-        lon2 = 74.0445
 
-        print(haversine(lat1, lon1, lat2, lon2))
-    pass
+def find_school(logopedist, psychologist, pedagogue, language, students, school_type):
+    data = pd.read_excel()
+    df = data.loc[:,['Nazwa', 'Ulica', 'Numer budynku', 'Numer lokalu', 'Kod pocztowy', 'Strona www', data['Publiczność status'].isin(school_type),
+                     data['Kategoria uczniów'].eq(students), data["Języki nauczane"].str.constains(language), data["Czy zatrudnia logopedę"].isin(logopedist),
+                     data["Czy zatrudnia pedagoga"].isin(pedagogue), data["Czy zatrudnia psychologa"].isin(psychologist)]]
+
+    school = "Pass"
+    return school
+
+
+
+
+
