@@ -32,14 +32,18 @@ class Finder(PageLayout):
     def pedagogue_click(self, instance, value, answer):
         if value == True:
             return answer
-    def language_click(self, instance, value, answer):
+    def language_click(self, instance, avalue, answer):
         if value == True:
             return answer
 
-    def nearest_school(self):
-        self.ids.result.text  = finder.find_school(self.logopedist_click(), self.psychologist_click(), self.pedagogue_click(),
-                           self.language_click(), self.students_type(), self.school_type())
+    def answer(self, id):
+        return self.ids.text
 
+    def nearest_school(self):
+
+        df = finder.find_school(self.logopedist_click(), self.psychologist_click(), self.pedagogue_click(),
+                           self.language_click(), self.students_type(), self.school_type())
+        self.ids.result.text = finder.finder(df, self.answer(self, address_city), street, number, postalcode)
 
 class FinderApp(App):
 
