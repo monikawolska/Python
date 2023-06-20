@@ -41,10 +41,10 @@ def finder(df: object, city: object, street: object, number: object, postalcode:
     return df[df['distance']==minim]
 
 
-def find_school(logopedist, psychologist, pedagogue, language, students, school_type):
+def find_school(logop, psychologist, pedagogue, language, students, school_type):
     data = pd.read_excel()
     df = data.loc[:,['Nazwa', 'Ulica', 'Numer budynku', 'Numer lokalu', 'Kod pocztowy', 'Strona www', data['Publiczność status'].isin(school_type),
-                     data['Kategoria uczniów'].eq(students), data["Języki nauczane"].str.constains(language), data["Czy zatrudnia logopedę"].isin(logopedist),
+                     data['Kategoria uczniów'].eq(students), data["Języki nauczane"].str.constains(language), data["Czy zatrudnia logopedę"].isin(logop),
                      data["Czy zatrudnia pedagoga"].isin(pedagogue), data["Czy zatrudnia psychologa"].isin(psychologist)]]
 
     schools = add_coordinates(df)
