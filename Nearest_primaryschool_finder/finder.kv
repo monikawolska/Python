@@ -90,21 +90,21 @@
             CheckBox:
                 id: rbutton1
                 group: 'logopedist'
-                on_active: root.logopedist_click(self, self.active, ["TAK"])
+                on_active: root.logop_click(self, self.active, ["TAK"])
             Label:
                 id: label2
                 text: 'No'
             CheckBox:
                 id: rbutton2
                 group: 'logopedist'
-                on_active: root.logopedist_click(self, self.active, ["NIE"])
+                on_active: root.logop_click(self, self.active, ["NIE"])
             Label:
                 id: label2
                 text: r'I dont need such information'
             CheckBox:
                 id: rbutton2
                 group: 'logopedist'
-                on_active: root.logopedist_click(self, self.active, ["TAK", "NIE", ""])
+                on_active: root.logop_click(self, self.active, ["TAK", "NIE", ""])
 
         Label:
             text: '*Only small number of schools provide such information. It can cause in very limited choice.'

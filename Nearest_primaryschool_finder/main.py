@@ -23,7 +23,7 @@ class Finder(PageLayout):
     def school_type(self, instance, value, answer):
         if value == True:
             return answer
-    def logopedist_click(self, instance, value, answer):
+    def logop_click(self, instance, value, answer):
         if value == True:
             return answer
     def psychologist_click(self, instance, value, answer):
