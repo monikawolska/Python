@@ -18,12 +18,15 @@ dolar = analysis.Analysis("dolar.csv", "DOLAR", "https://www.money.pl/pieniadze/
 
 
 class Invest(BoxLayout):
+
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
         #chart = self.ids.chart
         #plt.plot(euro.default_chart_x(), euro.default_chart_y())
         #chart.add_widget(FigureCanvasKivyAgg(plt.gcf()))
+
 
     def show_data_euro(self):
         self.deactivate_button()
@@ -32,7 +35,7 @@ class Invest(BoxLayout):
         self.ids.current_price.text = euro.price_today()
         self.ids.trend_info.text = euro.rolling_average_trends()
         self.ids.transaction_info.text = euro.rolling_average_signals()
-        self.ids.fibonacci_info.text = euro.harmonic_Fibonacci_analysis()
+        #self.ids.fibonacci_info.text = euro.harmonic_Fibonacci_analysis()
 
 
     def show_data_dolar(self):
@@ -42,7 +45,7 @@ class Invest(BoxLayout):
         self.ids.current_price.text = dolar.price_today()
         self.ids.trend_info.text = dolar.rolling_average_trends()
         self.ids.transaction_info.text = dolar.rolling_average_signals()
-        self.ids.fibonacci_info.text = dolar.harmonic_Fibonacci_analysis()
+        #self.ids.fibonacci_info.text = dolar.harmonic_Fibonacci_analysis()
 
 
     def update(self):

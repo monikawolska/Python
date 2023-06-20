@@ -187,8 +187,4 @@ class Analysis():
 
 
     def simple_steps(self):
-
-
-
-euro = Analysis("euro.csv", "EURO", "https://www.money.pl/pieniadze/nbparch/srednie/?symbol=EUR.n", "EUR")
-euro.harmonic_Fibonacci_analysis()
+        pass

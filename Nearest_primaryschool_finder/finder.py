@@ -6,8 +6,6 @@ from bs4 import BeautifulSoup
 file = 'warsaw_primary_schools.xlsx'
 
 
-
-
 def add_coordinates(df):
     url_beginning = r"https://www.google.pl/maps/place/"
     df['Latitude'] = '0'
@@ -26,8 +24,8 @@ def add_coordinates(df):
     return df
 
 
-def finder(df, city, street, number, postalcode):
-
+def finder(df: object, city: object, street: object, number: object, postalcode: object) -> object:
+    url_beginning = r"https://www.google.pl/maps/place/"
     URL = url_beginning + street + r"+" + str(number) + r",+" + postalcode + "+" + city
     page = get(URL)
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -37,37 +35,10 @@ def finder(df, city, street, number, postalcode):
         lat_user = price[0]
         lon_user = price[1]
 
-    for index, row in df.itterrows():
+    df['distance'] = [sqrt(pow((price[0] - df['Latitude']) , 2) + pow((price[1] - df['Longitude']) , 2))]
 
-        lat = df[index, 'Latitude']
-        lon = df[index, 'Longitude']
-
-        # using harvestine formula
-        dLat = (lat_user - lat) * math.pi / 180.0
-        dLon = (lon_user - lon) * math.pi / 180.0
-
-        # converting to radians
-        lat = (lat) * math.pi / 180.0
-        lat_user = (lat_user) * math.pi / 180.0
-
-        # applying formula
-        a = (pow(math.sin(dLat / 2), 2) +
-             pow(math.sin(dLon / 2), 2) *
-             math.cos(lat) * math.cos(lat_user))
-
-        rad = 6371
-        c = 2 * math.asin(math.sqrt(a))
-        distance = rad * c
-
-        if index == 0:
-            min = distance
-            indeks_result = 0
-        else:
-            if distance < min:
-                min = distance
-                indeks_result = index
-
-    return df[indeks_result, :]
+    minim = min(df['distance'])
+    return df[df['distance']==minim]
 
 
 def find_school(logopedist, psychologist, pedagogue, language, students, school_type):
