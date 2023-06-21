@@ -35,20 +35,18 @@ def finder(df: object, city: object, street: object, number: object, postalcode:
         lat_user = price[0]
         lon_user = price[1]
 
-    df['distance'] = [sqrt(pow((price[0] - df['Latitude']) , 2) + pow((price[1] - df['Longitude']) , 2))]
+    df['distance'] = [sqrt(pow((price[0] - df['Latitude']), 2) + pow((price[1] - df['Longitude']), 2))]
 
     minim = min(df['distance'])
-    return df[df['distance']==minim]
+    return df[df['distance'] == minim]
 
 
 def find_school(logop, psychologist, pedagogue, language, students, school_type):
-    data = pd.read_excel()
+    data = pd.read_excel(file)
     df = data.loc[:,['Nazwa', 'Ulica', 'Numer budynku', 'Numer lokalu', 'Kod pocztowy', 'Strona www', data['Publiczność status'].isin(school_type),
-                     data['Kategoria uczniów'].eq(students), data["Języki nauczane"].str.constains(language), data["Czy zatrudnia logopedę"].isin(logop),
+                     data['Kategoria uczniów'].eq(students), data["Języki nauczane"].str.contains(language).any(), data["Czy zatrudnia logopedę"].isin(logop),
                      data["Czy zatrudnia pedagoga"].isin(pedagogue), data["Czy zatrudnia psychologa"].isin(psychologist)]]
 
     schools = add_coordinates(df)
 
     return finder(schools)
-
-

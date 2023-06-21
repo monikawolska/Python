@@ -13,34 +13,47 @@ Config.set('graphics', 'height', '1500')
 Config.set('graphics', 'fullscreen', '0')
 
 
+
 class Finder(PageLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+    information_students_type = ''
+    information_school_type = []
+    information_logop_click = []
+    information_psychologist_click = []
+    information_pedagogue_click = []
+    information_language_click = ''
+
     def students_type(self, instance, value, answer):
         if value == True:
-            return answer
+            self.information_students_type = answer
+
     def school_type(self, instance, value, answer):
         if value == True:
-            return answer
+            self.information_school_type = answer
+
     def logop_click(self, instance, value, answer):
         if value == True:
-            return answer
+            self.information_logop_click = answer
+
     def psychologist_click(self, instance, value, answer):
         if value == True:
-            return answer
+            self.information_psychologist_click = answer
+
     def pedagogue_click(self, instance, value, answer):
         if value == True:
-            return answer
+            self.information_pedagogue_click = answer
+
     def language_click(self, instance, value, answer):
         if value == True:
-            return answer
+            self.information_language_click = answer
 
 
     def nearest_school(self):
 
-        df = finder.find_school(self.logopedist_click(), self.psychologist_click(), self.pedagogue_click(),
-                           self.language_click(), self.students_type(), self.school_type())
+        df = finder.find_school(self.information_logop_click, self.information_psychologist_click, self.information_pedagogue_click,
+                           self.information_language_click, self.information_students_type, self.information_school_type)
         self.ids.result.text = finder.finder(df, self.ids.address_city.text, self.ids.address_street.text, self.ids.address_house.text, self.ids.address_code.text)
 
 class FinderApp(App):
@@ -48,6 +61,6 @@ class FinderApp(App):
     def build(self):
         return Finder()
 
+
 if __name__ == '__main__':
     FinderApp().run()
-a

@@ -60,14 +60,14 @@
             CheckBox:
                 id: rbutton1
                 group: 'type'
-                on_active: root.school_type(self, self.active, "publiczna")
+                on_active: root.school_type(self, self.active, ["publiczna"])
             Label:
                 id: label2
                 text: 'Private'
             CheckBox:
                 id: rbutton2
                 group: 'type'
-                on_active: root.school_type(self, self.active, "niepubliczna")
+                on_active: root.school_type(self, self.active, ["niepubliczna"])
             Label:
                 id: label2
                 text: 'All'
@@ -89,21 +89,21 @@
                 text: 'Yes'
             CheckBox:
                 id: rbutton1
-                group: 'logopedist'
+                group: 'log'
                 on_active: root.logop_click(self, self.active, ["TAK"])
             Label:
                 id: label2
                 text: 'No'
             CheckBox:
                 id: rbutton2
-                group: 'logopedist'
+                group: 'log'
                 on_active: root.logop_click(self, self.active, ["NIE"])
             Label:
                 id: label2
                 text: r'I dont need such information'
             CheckBox:
                 id: rbutton2
-                group: 'logopedist'
+                group: 'log'
                 on_active: root.logop_click(self, self.active, ["TAK", "NIE", ""])
 
         Label:
