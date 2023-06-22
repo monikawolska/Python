@@ -11,8 +11,8 @@ def add_coordinates(df):
     df['Latitude'] = 0
     df['Longitude'] = 0
 
-    for index, row in df.itterrows():
-        URL = url_beginning + row[16] + r"+" + str(row[17]) + r",+" + row[19] + "+Warszawa"
+    for index, row in df.iterrows():
+        URL = url_beginning + row[1] + r"+" + str(row[2]) + r",+" + row[4] + "+Warszawa"
         page = get(URL)
         soup = BeautifulSoup(page.content, 'html.parser')
 
@@ -22,7 +22,6 @@ def add_coordinates(df):
             df[index, 'Longitude'] = price[1]
 
     return df
-
 
 def finder(df, city, street, number, postalcode):
     url_beginning = r"https://www.google.pl/maps/place/"
