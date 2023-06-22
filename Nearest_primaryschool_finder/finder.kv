@@ -37,14 +37,14 @@
             CheckBox:
                 id: rbutton1
                 group: 'students'
-                on_active: root.students_type(self, self.active, "Dzieci lub młodzież")
+                on_active: root.students_type(self, self.active, ["Dzieci lub młodzież"])
             Label:
                 id: label2
                 text: 'Adults'
             CheckBox:
                 id: rbutton2
                 group: 'students'
-                on_active: root.students_type(self, self.active, "Dorośli")
+                on_active: root.students_type(self, self.active, ["Dorośli"])
 
     BackgroundBoxLayout:
 
