@@ -12,7 +12,7 @@
 <Title@Label>
     bold: True
     italic: True
-    color: 1, 0, 1, 1
+    color: 1, 1, 1, 1
 
 <Finder>:
 
@@ -288,13 +288,6 @@
             Button:
                 text: 'Find school'
                 on_release: root.nearest_school()
-
-    # fifth page
-    BackgroundBoxLayout:
-
-        Title:
-            text: 'Your nearest primary school is'
-
-        Label:
-            id: result
-            text: ""
+            Label:
+                id: result
+                text: ''

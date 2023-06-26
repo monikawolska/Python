@@ -42,7 +42,12 @@ def finder(df, city, street, number, postalcode):
 
 def find_school(logop, psychologist, pedagogue, language, students, school_type):
     data = pd.read_excel(file)
-    df = data[data["Czy zatrudnia psychologa"].isin(psychologist)==True].loc[:,['Nazwa', 'Ulica', 'Numer budynku', 'Numer lokalu', 'Kod pocztowy']]
+    df = data[data['Publiczność status'].isin(school_type) &
+                      data['Kategoria uczniów'].isin(students) &
+                      data["Języki nauczane"].str.contains(language).any() &
+                      data["Czy zatrudnia logopedę"].isin(logop) &
+                      data["Czy zatrudnia pedagoga"].isin(pedagogue) &
+                      data["Czy zatrudnia psychologa"].isin(psychologist)].loc[:,['Nazwa', 'Ulica', 'Numer budynku', 'Numer lokalu', 'Kod pocztowy']]
 
     schools = add_coordinates(df)
 
